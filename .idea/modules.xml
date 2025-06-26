@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/HW-Critea-Queiry.iml" filepath="$PROJECT_DIR$/.idea/HW-Critea-Queiry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Search-book/Search-book.iml" filepath="$PROJECT_DIR$/Search-book/Search-book.iml" />
+    </modules>
+  </component>
+</project>
