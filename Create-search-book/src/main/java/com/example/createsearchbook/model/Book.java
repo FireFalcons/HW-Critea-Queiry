@@ -13,10 +13,21 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "author")
     private String author;
+
+    @Column(name = "isbn")
     private String isbn;
+
+    @Column(name = "price")
     private BigDecimal price;
+
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "cover_image")
     private String coverImage;
 }

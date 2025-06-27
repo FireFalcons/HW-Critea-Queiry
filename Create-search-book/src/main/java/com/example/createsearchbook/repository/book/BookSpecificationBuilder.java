@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class BookSpecificationBuilder implements SpecificationBuilder<Book> {
     private final SpecificationProviderManager<Book> bookSpecificationProviderManager;
+    public static final String TITLE = "title";
+    public static final String AUTHOR = "author";
+    public static final String ISBN = "isbn";
 
     @Override
     public Specification<Book> build(BookSearchParametersDto searchParametersDto) {
@@ -19,17 +22,17 @@ public class BookSpecificationBuilder implements SpecificationBuilder<Book> {
                 (root, query, criteriaBuilder)
                         -> criteriaBuilder.conjunction());
         if (searchParametersDto.title() != null && !searchParametersDto.title().isEmpty()) {
-            spec = spec.and(bookSpecificationProviderManager.getSpecificationProvider("title")
+            spec = spec.and(bookSpecificationProviderManager.getSpecificationProvider(TITLE)
                     .getSpecification(searchParametersDto.title()));
         }
 
         if (searchParametersDto.author() != null && !searchParametersDto.author().isEmpty()) {
-            spec = spec.and(bookSpecificationProviderManager.getSpecificationProvider("author")
+            spec = spec.and(bookSpecificationProviderManager.getSpecificationProvider(AUTHOR)
                     .getSpecification(searchParametersDto.author()));
         }
 
         if (searchParametersDto.isbn() != null && !searchParametersDto.isbn().isEmpty()) {
-            spec = spec.and(bookSpecificationProviderManager.getSpecificationProvider("isbn")
+            spec = spec.and(bookSpecificationProviderManager.getSpecificationProvider(ISBN)
                     .getSpecification(searchParametersDto.isbn()));
         }
         return spec;

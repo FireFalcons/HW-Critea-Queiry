@@ -6,12 +6,11 @@ import com.example.createsearchbook.service.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/booksApp")
+@RequestMapping("/books")
 public class BookController {
     private final BookService bookService;
 
@@ -19,6 +18,11 @@ public class BookController {
     @ResponseStatus(HttpStatus.CREATED)
     public BookDto create(@RequestBody BookDto bookDto) {
         return bookService.save(bookDto);
+    }
+
+    @GetMapping
+    public List<BookDto> findAll() {
+        return bookService.findAll();
     }
 
     @GetMapping("/search")
